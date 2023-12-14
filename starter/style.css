@@ -86,6 +86,8 @@ header {
 }
 
 .editable {
+  display: flex;
+  justify-content: flex-start;
   flex-grow: 1;
   border: 1px solid #0a0909;
   padding: 5px;

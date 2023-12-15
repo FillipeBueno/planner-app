@@ -9,20 +9,20 @@ var savedData = [];
 
 
 //API:
+
+dayjs.extend(window.dayjs_plugin_utc);
+dayjs().format();
 var now= dayjs().$d;
 
 console.log(now);
 
  document.getElementById("apiCallDate").textContent = now;
 
+ 
+ 
+ var test= dayjs().format('LLLL');
 
-
-
-
-
-
-
-
+ console.log(test);
 
 
 

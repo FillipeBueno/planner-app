@@ -3,7 +3,25 @@ displayStoredData();
 
 
 
-var savedData = [''];
+
+
+var savedData = [];
+
+
+//API:
+var now= dayjs().$d;
+
+console.log(now);
+
+ document.getElementById("apiCallDate").textContent = now;
+
+
+
+
+
+
+
+
 
 
 
@@ -48,6 +66,8 @@ function handleSaveClick(elementId) {
 
 
   var userInput = document.getElementById(elementId).innerText;
+  
+
 
   var newData = {
     value: userInput,

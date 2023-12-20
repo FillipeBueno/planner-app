@@ -20,6 +20,7 @@ header {
   border-radius: 0;
   border-bottom: 10px solid black;
   padding: 60px;
+  padding-bottom: 20px;
 }
 
 .description {
@@ -103,3 +104,5 @@ header {
 .btn{
   margin-left: 10px;
 }
+
+

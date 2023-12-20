@@ -1,6 +1,15 @@
-
 displayStoredData();
 
+
+changeColor('block9am');
+changeColor('block10am');
+changeColor('block11am');
+changeColor('block12pm');
+changeColor('block13pm');
+changeColor('block14pm');
+changeColor('block15pm');
+changeColor('block16pm');
+changeColor('block17pm');
 
 
 
@@ -10,20 +19,54 @@ var savedData = [];
 
 //API:
 
-dayjs.extend(window.dayjs_plugin_utc);
-dayjs().format();
-var now= dayjs().$d;
+//Displaying of time on the header.
+var now = dayjs().$d;
 
-console.log(now);
 
- document.getElementById("apiCallDate").textContent = now;
+document.getElementById("apiCallDate").textContent = now;
 
- 
- 
- var test= dayjs().format('LLLL');
 
- console.log(test);
+//Change of blocks' colours.
 
+function changeColor(elementId) {
+
+  var now = dayjs().$d;
+
+  var hours = now.getHours();
+
+  var block = document.getElementById(elementId);
+
+  var idValue = block.id;
+
+
+  //check if there is a one or more digits in the ID.
+  var match = idValue.match(/\d+/);
+
+  // Check if a match is found
+  if (match) {
+
+    var blockTime = parseInt(match[0]);
+
+
+  } else {
+    console.error('No numeric part found in the ID.');
+  }
+
+
+//check if time matches with block
+  if (blockTime == hours) {
+    block.classList.add("present");
+
+  } else if (blockTime > hours) {
+    block.classList.add("future");
+
+  } else {
+    block.classList.add("past");
+
+
+
+  }
+};
 
 
 //Callback function for the multiple save buttons
@@ -44,20 +87,20 @@ document.getElementById('saveBtn4').addEventListener('click', function () {
 });
 
 document.getElementById('saveBtn5').addEventListener('click', function () {
-  handleSaveClick('block1pm');
+  handleSaveClick('block13pm');
 });
 
 document.getElementById('saveBtn6').addEventListener('click', function () {
-  handleSaveClick('block2pm');
+  handleSaveClick('block14pm');
 });
 document.getElementById('saveBtn7').addEventListener('click', function () {
-  handleSaveClick('block3pm');
+  handleSaveClick('block15pm');
 });
 document.getElementById('saveBtn8').addEventListener('click', function () {
-  handleSaveClick('block4pm');
+  handleSaveClick('block16pm');
 });
 document.getElementById('saveBtn9').addEventListener('click', function () {
-  handleSaveClick('block5pm');
+  handleSaveClick('block17pm');
 });
 
 
@@ -66,7 +109,7 @@ function handleSaveClick(elementId) {
 
 
   var userInput = document.getElementById(elementId).innerText;
-  
+
 
 
   var newData = {
@@ -78,7 +121,7 @@ function handleSaveClick(elementId) {
 
   localStorage.setItem('savedData', JSON.stringify(savedData));
 
- 
+
 }
 
 //function do display saved tasks
